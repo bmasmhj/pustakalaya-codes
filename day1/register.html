@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Specifies the character encoding for the document -->
     <meta charset="UTF-8">
+    <!-- Ensures proper rendering and touch zooming on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the title of the webpage -->
     <title>Form</title>
 </head>
 <body>
    <div>
+        <!-- Heading for the form -->
         <h1>Register Form</h1>
-        <form >
-            <label for="">Name</label>
+        <!-- Start of the form -->
+        <form>
+            <!-- Input field for name -->
+            <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="Enter your name" required>
             <br />
+            <!-- Input field for number -->
             <label for="number">Number</label>
-            <input type="number" name="number" id="number" placeholder="Enter your number" >
+            <input type="number" name="number" id="number" placeholder="Enter your number">
             <br />
-            <label for="">Email</label>
+            <!-- Input field for email -->
+            <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="Enter your email" required>
             <br>
-            <label for="">Gender</label>
-            <!-- radio input -->
-             <br />
-             <input type="radio" name="gender" id="gender_male" /> <label for="gender_male">Male</label> 
-             <input type="radio" name="gender" id="gender_female" /> Female
+            <!-- Radio buttons for gender selection -->
+            <label for="gender">Gender</label>
             <br />
-            <label for="">Hobby</label>
-            <!-- radio input -->
-             <br />
-             <input type="checkbox" name="hobby" id="male" /> <label for="male">Sports</label> 
-             <input type="checkbox" name="hobby" id="female" /> Movie
-            <input type="checkbox" name="" /> Swim
-             <br />
-
-             <select name="" id="">
-                <option value="">Option 1</option>
-                <option value="">Option 2</option>
-                <option value="">Option 3</option>
-                <option value="">Option 4</option>
-                <option value="">Option 5</option>
-
-             </select>
-
-            <input type="file" name="" id="">
-            <input type="date" name="" id="">
-            <input type="time" name="" id="">
-
-            <input type="submit" name="register" id="">
+            <input type="radio" name="gender" id="gender_male" /> <label for="gender_male">Male</label> 
+            <input type="radio" name="gender" id="gender_female" /> Female
+            <br />
+            <!-- Checkbox inputs for hobbies -->
+            <label for="hobby">Hobby</label>
+            <br />
+            <input type="checkbox" name="hobby" id="male" /> <label for="male">Sports</label> 
+            <input type="checkbox" name="hobby" id="female" /> Movie
+            <input type="checkbox" name="hobby" id="swim" /> Swim
+            <br />
+            <!-- Dropdown menu -->
+            <select name="options" id="options">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+            </select>
+            <br />
+            <!-- File upload input -->
+            <input type="file" name="file" id="file">
+            <br />
+            <!-- Date input -->
+            <input type="date" name="date" id="date">
+            <br />
+            <!-- Time input -->
+            <input type="time" name="time" id="time">
+            <br />
+            <!-- Submit button -->
+            <input type="submit" name="register" id="register" value="Register">
         </form>
    </div>
 </body>
 </html>
 
-<!-- script tag -->
- 
+<!-- End of the HTML document -->

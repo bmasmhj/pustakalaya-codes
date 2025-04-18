@@ -6,3 +6,12 @@ Today we learned about the following:
     - What are HTML elements ?
     - What are HTML attributes ?
     - What are HTML tags ?
+
+
+# basic.html
+ - includes the basic structure of an HTML document
+ - includes basic HTML elements and attributes
+
+# register.html
+ - includes a form with input fields , labels , types and attributes
+ - includes a submit button
