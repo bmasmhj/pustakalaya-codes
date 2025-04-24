@@ -29,11 +29,11 @@ Each page has a common navigation section like this:
 </div>
 
 
-🔎 Explanation:
-`<a>`: The anchor tag, used for creating hyperlinks.
-`href`: Stands for hyperlink reference; it defines the destination of the link.
-`style`: Adds inline CSS to style the element directly.
+## 🔎 Explanation:
+- `<a>`: The anchor tag, used for creating hyperlinks.
+- `href`: Stands for hyperlink reference; it defines the destination of the link.
+- `style`: Adds inline CSS to style the element directly.
 
-🎨 Styling Purpose:
-`text-decoration: none;`: Removes the underline from the link, giving a cleaner look.
-`color: red;`: Highlights the currently active page (in this case, services.html), helping users know where they are.
+## 🎨 Styling Purpose:
+- `text-decoration: none;`: Removes the underline from the link, giving a cleaner look.
+- `color: red;`: Highlights the currently active page (in this case, services.html), helping users know where they are.
