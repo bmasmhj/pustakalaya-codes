@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 1</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        /* tagname , id , class  */  
+
+        /* 
+                tagname - tagname
+                id - #idname 
+                class - .classname
+        
+        */
+        /* h5{
+            color: rgb(255, 255, 255); 
+            background: #00c6cf;
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 3px solid #000000;
+            
+        } */
+        
+        .h1withheader{
+            color: rgb(255, 255, 255); 
+            background: #00c6cf!important;
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 3px solid #000000;
+        }
+            #h1withheaderid{
+            color: rgb(255, 255, 255); 
+            background: red;
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 3px solid #000000;
+        } 
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <h5 id="h1withheaderid" class="h1withheader" style="background-color: green;" > 
+            
+        HELLO , Bimash Maharjan </h5>
+        <h5 class="h1withheader">Hi</h5>
+        <a href="index.html">Logout</a>
+    </div>
+    <hr>
+  
+    <table border="1"> 
+        <thead>
+            <tr>
+                <!-- Table Heading  -->
+                <th colspan="2">Name</th>
+                <th>Email</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+      <tbody>
+        <tr> <!-- Table Row -->
+            <td>Bimash</td> <!-- Table Data -->
+            <td>Maharjan</td>
+            <td>bmasmhj@bimash.com.np</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+
+        <tr> <!-- Table Row -->
+            <td>Rohan</td> <!-- Table Data -->
+            <td>Maharjan</td>
+            <td>rohan@bimash.com.np</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+
+        <tr> <!-- Table Row -->
+            <td>Aakash</td> <!-- Table Data -->
+            <td>Thapa</td>
+            <td>aakash@bimash.com.np</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="h1withheader">
+            <td colspan="5">
+                Remarks
+            </td>
+        </tr>
+      </tfoot>
+
+    </table>    
+</body>
+</html>
