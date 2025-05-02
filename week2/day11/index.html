@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    nav{
+        background-color: #FF6B6B;
+        display: flex;
+        gap: 20px;
+        padding: 4px 0px 4px 21px;
+    }
+
+    nav a{
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        /* margin-right: 20px; */
+    }
+
+    .card{
+        width: 250px;
+        border : 1px solid black;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .card h4{
+        font-size: 20px;
+        margin: 0px;
+    }
+</style>
+<body>
+    <nav>
+        <a  href="#">Home</a>
+        <a  href="#">About</a>
+        <a  href="#">Contact</a>
+    </nav>
+    
+    <div class="card">
+        <img src="https://picsum.photos/200/200" alt="">
+        <h4>Course Title</h4>
+        <p>This is course description</p>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+        <button>Details</button>
+    </div>
+    
+</body>
+</html>
