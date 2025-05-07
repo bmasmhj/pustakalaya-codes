@@ -1,0 +1,106 @@
+/* Reset some defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Layout */
+  .page-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: #d8b4fe; /* Light purple */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .register-container {
+    display: flex;
+    width: 70%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Image */
+  .register-image {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Form */
+  .register-form {
+    width: 50%;
+    padding: 3rem;
+  }
+  
+  .form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .input-field {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .checkbox-container {
+    font-size: 0.9rem;
+    color: #444;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .link {
+    color: #6b21a8; /* Purple */
+    text-decoration: underline;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #9333ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #7e22ce;
+  }
+  
