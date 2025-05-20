@@ -1,0 +1,37 @@
+<script>
+    /* 
+        Q: Find the area of a rectangle with length  x cm and breadth y cm.
+        Q: A rectangle has a length of x m and a width of y m. What is its perimeter?
+        Q: Find the area of a triangle with a base of x cm and a height of y cm.
+        Q: What is the volume of a cube with side length x cm?
+        Q: A circle has a radius of x cm. Find its circumference. (Use π = 22/7)
+
+        Where x and y are user inputs.
+    */
+
+    let lenght = prompt("Enter length of rectangle in cm");
+    let breadth = prompt("Enter breadth of rectangle in cm");
+
+    lenght = parseInt(lenght);
+    breadth = parseInt(breadth);
+
+    // Area of rectangle
+    let area = lenght * breadth;
+    console.log("Area of rectangle is: " + area + " cm^2");
+
+    // Perimeter of rectangle
+    let perimeter = 2 * (lengh +breadth);
+    console.log("Perimeter of rectangle is: " + perimeter + " cm");
+
+    // Area of triangle where l is base and h is height
+    let areaOfTriangle = (lenght * breadth) / 2;
+    console.log("Area of triangle is: " + areaOfTriangle + " cm^2");
+
+    // volume of cube where length is side
+    let volumeOfCube = lenght * lenght * lenght;
+    console.log("Volume of cube is: " + volumeOfCube + " cm^3");
+
+    // Circumference of circle where r is radius
+    let circumference = 2 * (22 / 7) * lenght;
+    console.log("Circumference of circle is: " + circumference + " cm");
+</script>
