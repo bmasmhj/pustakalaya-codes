@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error-input {
+            border: 1px solid red;
+        }
+        .btn{
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username">
+        <span id="username_msg"></span>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" id="age">
+        <span id="age_msg"></span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" id="password">
+        <span id="password_msg"></span>
+    </div>
+    <button onclick="login()" class="btn">Login</button>
+    <script src="./script.js"></script>
+</body>
+
+</html>
