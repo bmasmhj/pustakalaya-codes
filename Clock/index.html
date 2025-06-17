@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #261a2e, #2f163e);
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
+        }
+
+        .clock-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .time-segment {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            min-width: 150px;
+            color: #9d00ff;
+            font-size: 4rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .time-segment:hover {
+            transform: scale(1.05);
+        }
+
+        .segment-label {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            color: #dd4e4e;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .date {
+            margin-top: 20px;
+            color: #dd4e4e;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .time-segment {
+                font-size: 2.5rem;
+                padding: 10px;
+                min-width: 60px;
+            }
+            .clock-container {
+                padding: 20px;
+            }
+        }
+</style>
+<body>
+    
+   <div class="clock-container">
+        <div class="clock">
+            <div class="time-segment" id="hours">00
+                <div class="segment-label">Hours</div>
+            </div>
+            <div class="time-segment" id="minutes">00
+                <div class="segment-label">Minutes</div>
+            </div>
+            <div class="time-segment" id="seconds">00
+                <div class="segment-label">Seconds</div>
+            </div>
+             <div class="time-segment" id="miliseconds">00
+                <div class="segment-label">Seconds</div>
+            </div>
+        </div>
+        <div class="date" id="date">Loading...</div>
+    </div>
+</body>
+
+<script>
+    function updateClock(){
+        let now = new Date();
+        let year = now.getFullYear().toLocaleString();
+        let month = now.getMonth().toLocaleString()
+        let hours = now.getHours().toLocaleString();
+        let min = now.getMinutes().toLocaleString();
+        let seconds = now.getSeconds().toLocaleString();
+        let miliseconds = now.getMilliseconds().toLocaleString();
+        
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('minutes').innerHTML = min;
+        document.getElementById('seconds').innerHTML = seconds;
+        document.getElementById('miliseconds').innerHTML = miliseconds;
+
+        
+        document.getElementById('date').innerHTML = `${month} - ${year}`
+
+
+
+    }
+
+
+    setInterval(updateClock, 1)
+
+
+</script>
+</html>
