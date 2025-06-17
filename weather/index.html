@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
+    <title>Weather App</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Main container styling */
+        .container {
+            background: #171717;
+            color: #fff;
+            padding: 2rem;
+            width: 40%;
+            margin: 4rem auto;
+            border-radius: 10px;
+        }
+
+        /* Header layout */
+        .weather__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Search input styling */
+        input {
+            border: none;
+            background: #1e1e1e;
+            outline: none;
+            color: #fff;
+            padding: 0.5rem 2.5rem;
+            border-radius: 5px;
+        }
+
+        input::placeholder {
+            color: #fff;
+        }
+
+        /* Search icon positioning */
+        .weather__search {
+            position: relative;
+        }
+
+        .weather__search i {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        /* Units styling (commented out in HTML) */
+        .weather__units {
+            font-size: 1.5rem;
+        }
+
+        .weather__units span {
+            cursor: pointer;
+        }
+
+        .weather__units span:first-child {
+            margin-right: 0.5rem;
+        }
+
+        /* Weather body styling */
+        .weather__body {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        #weather__datetime {
+            margin-bottom: 2rem;
+            font-size: 14px;
+        }
+
+        /* Forecast badge styling */
+        .weather__forecast {
+            background: #1e1e1e;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        /* Weather icon size */
+        .weather__icon img {
+            width: 100px;
+        }
+
+        /* Temperature font size */
+        #weather__temperature {
+            font-size: 1.75rem;
+        }
+
+        /* Min/max temperature layout */
+        .weather__minmax {
+            display: flex;
+            justify-content: center;
+        }
+
+        .weather__minmax p {
+            font-size: 14px;
+            margin: 0.5rem;
+        }
+
+        /* Weather info grid */
+        .weather__info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        /* Weather info card styling */
+        .weather__card {
+            display: flex;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .weather__card i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .weather__card p {
+            font-size: 14px;
+        }
+
+        /* Responsive styles */
+        @media(max-width: 936px){
+            .container {
+                width: 90%;
+            }
+
+            .weather__header {
+                flex-direction: column;
+            }
+
+            .weather__units {
+                margin-top: 1rem;
+            }
+        }
+
+        @media(max-width: 400px){
+            .weather__info {
+                grid-template-columns: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header: search form and (optional) units toggle -->
+        <div class="weather__header">
+            <form class="weather__search">
+                <input type="text" placeholder="Search for a city..." class="weather__searchform">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form> 
+            <!-- Units toggle (currently commented out) -->
+            <!-- <div class="weather__units">
+                <span class="weather_unit_celsius">&#176C</span>
+                <span class="weather_unit_farenheit">&#176F</span>
+            </div> -->
+        </div>
+        <!-- Weather main display -->
+        <div class="weather__body">
+            <h1 id="weather__city"></h1>
+            <div id="weather__datetime">
+            </div>
+            <p id="weather_temp"></p>
+            <div id="weather__forecast"></div>
+            <div id="weather__icon"></div>
+        </div>
+
+        <!-- Weather details grid -->
+        <div class="weather__info">
+            <div class="weather__card">
+                <i class="fa-solid fa-temperature-full"></i>
+                <div>
+                    <p>Real Feel</p>
+                    <p id="weather__realfeel">18&#176</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p>Humidity</p>
+                    <p id="weather__humidity">18&#176</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Wind</p>
+                    <p id="weather__wind">18&#176</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <div>
+                    <p>Pressure</p>
+                    <p id="weather__pressure">18&#176</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Degree symbol for display
+        const degreeSymbol = '&#176'
+
+        // Fetch weather data from wttr.in API and update DOM
+        async function getWeather(location){
+            let response = await fetch(`https://wttr.in/${location}?format=j1`)
+            let data = await response.json();
+            console.log(`${data.current_condition[0].FeelsLikeC}${degreeSymbol}`)
+            
+            // Update city name
+            document.getElementById('weather__city').innerHTML = data.nearest_area[0].areaName[0].value
+            // Update observation time
+            document.getElementById('weather__datetime').innerHTML = data.current_condition[0].observation_time
+            // Update weather description
+            document.getElementById('weather__forecast').innerHTML = data.current_condition[0].weatherDesc[0].value
+            // Update temperature (C and F)
+            document.getElementById('weather_temp').innerHTML = data.current_condition[0].temp_C + degreeSymbol + ' C / ' + data.current_condition[0].temp_F + degreeSymbol + ' F'
+            // Update real feel
+            document.getElementById('weather__realfeel').innerHTML = data.current_condition[0].FeelsLikeC + degreeSymbol
+            // Update humidity
+            document.getElementById('weather__humidity').innerHTML = data.current_condition[0].humidity + '%'
+            // Update wind speed
+            document.getElementById('weather__wind').innerHTML = data.current_condition[0].windspeedKmph + ' km/h'
+            // Update pressure
+            document.getElementById('weather__pressure').innerHTML = data.current_condition[0].pressureInches + ' inHg'
+        }
+
+        // Initial weather fetch for Kathmandu
+        getWeather('Kathmandu')
+    </script>
+</body>
+</html>
