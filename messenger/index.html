@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Messenger UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="assets/js/verify.js"></script>
 </head>
-<body>
-    
+
+<body class="bg-light">
+    <div class="card shadow vh-100">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+            <span>Messenger</span>
+        </div>
+        <div class="card-body" style="overflow-y: auto; background: #f8f9fa;" id="messageContainer">
+            <!-- Left Side -->
+            <div class="d-flex mb-3">
+                <div class="bg-secondary text-white rounded p-2 me-auto">Hello! How are you?</div>
+            </div>
+            <!-- Right side -->
+            <div class="d-flex mb-3 justify-content-end">
+                <div class="bg-primary text-white rounded p-2 ms-auto">I'm good, thanks! And you?</div>
+            </div>
+            <!-- More messages here -->
+        </div>
+        <div class=" p-2 bg-white position-absolute bottom-0 w-100">
+            <div class="d-flex">
+                <input type="text" class="form-control me-2" autocomplete="off" placeholder="Type a message..." id="messageInput">
+                <button class="btn btn-primary" onclick="sendMessage()"`>Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
+
+
+<script>
+    function sendMessage(){
+        var message = document.getElementById("messageInput");
+        let messageContainer = document.getElementById("messageContainer");
+
+        let messageBox = ` <div class="d-flex mb-3 justify-content-end">
+                <div class="bg-primary text-white rounded p-2 ms-auto">${message.value}</div>
+            </div>`;
+            
+        messageContainer.innerHTML += messageBox;
+        message.value = ""; // Clear the input field
+    }
+
+</script>
+
 </html>
