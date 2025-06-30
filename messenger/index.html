@@ -17,19 +17,19 @@
         </div>
         <div class="card-body" style="overflow-y: auto; background: #f8f9fa;" id="messageContainer">
             <!-- Left Side -->
-            <div class="d-flex mb-3">
+            <!-- <div class="d-flex mb-3">
                 <div class="bg-secondary text-white rounded p-2 me-auto">Hello! How are you?</div>
-            </div>
+            </div> -->
             <!-- Right side -->
-            <div class="d-flex mb-3 justify-content-end">
+            <!-- <div class="d-flex mb-3 justify-content-end">
                 <div class="bg-primary text-white rounded p-2 ms-auto">I'm good, thanks! And you?</div>
-            </div>
+            </div> -->
             <!-- More messages here -->
         </div>
         <div class=" p-2 bg-white position-absolute bottom-0 w-100">
             <div class="d-flex">
-                <input type="text" class="form-control me-2" autocomplete="off" placeholder="Type a message..." id="messageInput">
-                <button class="btn btn-primary" onclick="sendMessage()"`>Send</button>
+                <input type="text" onkeydown="handleKeyDown(event)" class="form-control me-2" autocomplete="off" placeholder="Type a message..." id="messageInput">
+                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
             </div>
         </div>
     </div>
@@ -50,6 +50,23 @@
             
         messageContainer.innerHTML += messageBox;
         message.value = ""; // Clear the input field
+    }
+
+
+    function handleKeyDown(event) {
+        console.log("Key pressed: ", event.key);
+        if (event.key === 'Enter') {
+            sendMessage(); // Call the sendMessage function
+        }
+    }
+
+
+    
+
+
+    function loadMessage(){
+        console.log("Loading messages...");
+        // https://chat.bimash.com.np/get-chat?get_chat=get
     }
 
 </script>
